@@ -51,7 +51,7 @@ public class LookAt : MonoBehaviour
 
         var pos = vec.normalized * Distance;
         
-        transform.position = new Vector3(pos.x , _Target.y + OffsetY, pos.y);
+        transform.position = new Vector3(pos.x , _Target.y + OffsetY +3, pos.y);
         transform.LookAt(new Vector3(_Target.x, _Target.y - OffsetY, _Target.z));
         
 

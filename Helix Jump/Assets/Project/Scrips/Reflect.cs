@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Reflect : MonoBehaviour
 {
-    public Vector3 Force;
+    public float Force;
+    
     readonly static Regulus.Utility.TimeCounter _CollisionCooldown = new Regulus.Utility.TimeCounter();
     readonly static long _CooldownTicks = (long)(((double)Regulus.Utility.TimeCounter.SecondTicks) * 0.2);
     public Reflect()
@@ -17,8 +18,10 @@ public class Reflect : MonoBehaviour
             return;
 
         var rig = collision.gameObject.GetComponent<Rigidbody>();
-        rig.velocity = Vector3.zero;
-        rig.AddForce(Force, ForceMode.Impulse);
+        
+        //rig.velocity = Vector3.zero;
+        
+        rig.AddForce(transform.forward * Force   , ForceMode.Impulse);
 
         _CollisionCooldown.Reset();
     }
