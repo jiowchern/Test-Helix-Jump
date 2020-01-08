@@ -19,7 +19,7 @@ public class Reflect : MonoBehaviour
 
         var rig = collision.gameObject.GetComponent<Rigidbody>();
         
-        //rig.velocity = Vector3.zero;
+        rig.velocity = Vector3.zero;
         
         rig.AddForce(transform.forward * Force   , ForceMode.Impulse);
 
