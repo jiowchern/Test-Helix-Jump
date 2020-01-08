@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rotater : MonoBehaviour
 {
     private Vector2 lastTapPos;
-    public float Range;
+    public float Speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class Rotater : MonoBehaviour
             float delta = lastTapPos.x - curTapPos.x;
             lastTapPos = curTapPos;
             
-            transform.Rotate(Vector3.up * Mathf.Max(Mathf.Min(Range , delta)) , -Range);
+            transform.Rotate(Vector3.up * delta * Speed);
         }
 
         if (Input.GetMouseButtonUp(0))
